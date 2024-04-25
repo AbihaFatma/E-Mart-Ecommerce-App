@@ -20,6 +20,7 @@ function Navbar() {
     window.location.href = "/login";
   };
   const cartItems = useSelector((state) => state.cart);
+
   return (
     <div className="bg-white sticky top-0 z-50">
       <Transition.Root show={open} as={Fragment}>
@@ -111,9 +112,16 @@ function Navbar() {
                       </a>
                     </div>
                   ) : (
-                    ""
+                    <div className="flow-root">
+                      <Link
+                        to={"/signup"}
+                        className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                        style={{ clor: mode === "dark" ? "white" : "" }}
+                      >
+                        Signup
+                      </Link>
+                    </div>
                   )}
-
                   <div className="flow-root">
                     <Link
                       to={"/"}
@@ -229,7 +237,13 @@ function Navbar() {
                       Order
                     </Link>
                   ) : (
-                    ""
+                    <Link
+                      to={"/signup"}
+                      className="text-sm font-medium text-gray-700 "
+                      style={{ color: mode === "dark" ? "white" : "" }}
+                    >
+                      Signup
+                    </Link>
                   )}
 
                   {user?.user?.email === "abihafatma12@gmail.com" ? (
